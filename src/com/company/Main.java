@@ -3,8 +3,7 @@ package com.company;
 
 import java.lang.*;
 import java.util.Scanner;
-
-
+import java.util.Random;
 
 
 public class Main {
@@ -12,31 +11,78 @@ public class Main {
     public static void main(String[] args) {
 
 
+       String[] sampleQualifierArr =
+               new String[]{"Why do you say that ?",
+                            "You seem to think that",
+                            "So, you are concerned "};
+        Random random = new Random();
+          int index = random.nextInt(sampleQualifierArr.length);
+//        System.out.println(sampleQualifierArr[index]);
+
+//        for( int i = 0; i <  sampleQualifierArray.length; i++)
+//        {
+//            String qualifier =  sampleQualifierArray[i];
+//            System.out.println( qualifier[] );
+//        }
+//
+//        String[] sampleHedgesArray = {"Please tell me more",
+//                "Many of my patients tell me the same thing",
+//                "It is getting late, maybe we had better quit"};
+//        for( int i = 0; i <  sampleHedgesArray.length; i++)
+//        {
+//            String hedge =  sampleHedgesArray[i];
+//            System.out.println( hedge[] );
+//        }
+
         Scanner sc = new Scanner(System.in);
         Boolean quit = false;
-        String imput = " ";
+        String input = " ";
         String output = " ";
 
-        //String qualifier = "Why are you saying that ?  ";
 
-        String[] qualifier = {"Why do you say that ?", "You seem to think that ", "So, you are concerned that  "};
 
-        String[] hedges = {"Please tell me more", "Many of my patients tell me the same thing","It is getting late", "maybe we had better quit" };
+        System.out.println("My name is Eliza, how can I help you ");
+            input = "So " + sc.nextLine() +  "?, sorry to hear that ";
 
-        String[] answers = new String[10];
+        String[] a = input.split(" ");
+        for (int i = 0; i < a.length; i++) {
 
-        System.out.println(" Hello, my Name is Eliza, Can I have your firstname, please ?  ");
-
-        while (quit == false )
-        {
-
-            String userAnswer = sc.next();
-
-            if (sc.next() != null)
-            {
-                System.out.println(" Thanks, How can I help you today   ?");
+            if (a[i].equalsIgnoreCase("me")) {
+                a[i] = "you";
             }
-            else System.out.println(" Hello, how can I help you");
+            if (a[i].equalsIgnoreCase("my")) {
+                a[i] = "your";
+            }
+            if (a[i].equalsIgnoreCase("i")) {
+                a[i] = "you";
+            }
+            if (a[i].equalsIgnoreCase("am")) {
+                a[i] = "are";
+            }
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            output += a[i] + " ";
+        }
+
+        System.out.println(output);
+
+
+        //System.out.println(" Please tell me more  ");
+        System.out.println(sampleQualifierArr[index]);
+
+    }
+}
+
+//
+//
+//            while (quit == false) {
+//
+//                String userAnswer = sc.next();
+//
+//                if (sc.next() != null) {
+//                    System.out.println(" Thanks, How can I help you today   ?");
+//                } else System.out.println(" Hello, how can I help you");
 
             /*
 
@@ -56,17 +102,16 @@ public class Main {
                 */
 
                 //output += a[i] + " ";
-            }
-            System.out.println( " Do you want to leave? (Q to quit)");
-            String  quitInput = sc.next();
-
-            if (quitInput.equalsIgnoreCase("q"))
-            {
-                quit = true;
-            }
-
-        }
-    }
+//            }
+//            System.out.println(" Do you want to leave? (Q to quit)");
+//            String quitInput = sc.next();
+//
+//            if (quitInput.equalsIgnoreCase("q")) {
+//                quit = true;
+//            }
+//
+//        }
+//    }
 
                 /*
                 else {
