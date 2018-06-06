@@ -1,7 +1,6 @@
 package com.company;
 
 
-
 import java.util.Scanner;
 import java.util.Random;
 
@@ -15,25 +14,84 @@ public class Main {
 
         Random choice = new Random();
         int index = choice.nextInt(length);
+        Scanner sc = new Scanner(System.in);
 
         Boolean quit = false;
         String input = " ";
         String output = " ";
 
-       String[] sampleQualifierArr =  new String[array_size];
-                sampleQualifierArr[0] = "Why do you say that ?";
-                sampleQualifierArr[1] = "You seem to think that";
-                sampleQualifierArr[2] = "So, you are concerned that";
+        String[] sampleQualifierArr = new String[array_size];
+        sampleQualifierArr[0] = "Why do you say that ";
+        sampleQualifierArr[1] = "You seem to think that";
+        sampleQualifierArr[2] = "So, you are concerned that";
 
-       String[] sampleHedgesArr =  new String[array_size];
-                sampleHedgesArr[0] = "Please tell me more";
-                sampleHedgesArr[1] = "Many of my patients tell me the same thing";
-                sampleHedgesArr[2] = "You seem to be tired, we can continue later";
+        String[] sampleHedgesArr = new String[array_size];
+        sampleHedgesArr[0] = "Please tell me more why";
+        sampleHedgesArr[1] = "Many of my clients tell me the same thing";
+        sampleHedgesArr[2] = "You seem to be tired, we can continue later";
 
         String sentence;
         sentence = "";
 
-//
+
+        System.out.println("My name is Eliza, how can I help you ");
+
+        do {
+            //    System.out.println(input);
+            System.out.print("Enter response: ");
+            input = sc.nextLine();
+
+            String[] a = input.split(" ");
+            for (int i = 0; i < a.length; i++) {
+
+                if (a[i].equalsIgnoreCase("me")) {
+                    a[i] = "you";
+                }
+                if (a[i].equalsIgnoreCase("my")) {
+                    a[i] = "your";
+                }
+                if (a[i].equalsIgnoreCase("i")) {
+                    a[i] = "you";
+                }
+                if (a[i].equalsIgnoreCase("am")) {
+                    a[i] = "are";
+                }
+                output = output + a[i] + " ";
+
+            }
+
+            System.out.println(sampleQualifierArr[index] + output + "?");
+
+            System.out.println(sampleHedgesArr[index] + output + "?");
+
+            System.out.println("To quit press q or continue press any key: ");
+            String quitInput = sc.next();
+
+            if (quitInput.equalsIgnoreCase("q")) {
+                quit = true;
+            }
+            else {
+                output = " ";
+            }
+
+        } while (quit == false);
+
+
+        //       System.out.println(output);
+
+//        System.out.println("My name is Eliza, how can I help you ");
+//        input = "So " + sc.nextLine() +  "?";
+
+//        sentence = sc.nextLine();
+
+        // System.out.println(selection);
+//        System.out.println(sampleQualifierArr[index] + sentence);
+
+
+    }
+}
+
+
 //        int selection  = choice.nextInt(3);
 //
 //        int min = 7;
@@ -56,45 +114,6 @@ public class Main {
 //                    break;
 //        }
 
-        Scanner sc = new Scanner(System.in);
-
-
-        String[] a = input.split(" ");
-        for (int i = 0; i < a.length; i++) {
-
-            if (a[i].equalsIgnoreCase("me")) {
-                a[i] = "you";
-            }
-            if (a[i].equalsIgnoreCase("my")) {
-                a[i] = "your";
-            }
-            if (a[i].equalsIgnoreCase("i")) {
-                a[i] = "you";
-            }
-            if (a[i].equalsIgnoreCase("am")) {
-                a[i] = "are";
-            }
-        }
-
-//        for (int i = 0; i < a.length; i++) {
-//            output += a[i] + " ";
-//        }
-
-        System.out.println(output);
-
-        System.out.println("My name is Eliza, how can I help you ");
-        input = "So " + sc.nextLine() +  "?";
-
-        sentence = sc.nextLine();
-
-       // System.out.println(selection);
-        System.out.println(sampleQualifierArr[index] + sentence);
-
-
-
-
-    }
-}
 
 ////class hedges {
 ////            for(  int i = 0; i< sampleHedgesArr.length;i++)
@@ -129,7 +148,7 @@ public class Main {
                 }
                 */
 
-                //output += a[i] + " ";
+//output += a[i] + " ";
 //            }
 //            System.out.println(" Do you want to leave? (Q to quit)");
 //            String quitInput = sc.next();
